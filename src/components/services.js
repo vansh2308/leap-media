@@ -1,5 +1,4 @@
 import "./services.css"
-import { motion } from "framer-motion"
 
 
 
@@ -70,33 +69,10 @@ export default function ServiceContainer(props) {
 
 
 
-const serviceVariants = {
-  offScreen: {
-    rotateX: 45
-  },
-  onScreen: {
-    // background: "red"
-    rotateX: 0,
-    transition: {
-      duration: 1
-    }
-  }
-
-}
 
 function Service(props) {
   return (
-    <motion.div
-      className="service"
-      initial="offScreen"
-      whileInView="onScreen"
-      variants={serviceVariants}
-      viewport={{ once: true }}
-
-    >
-
-
-      <div style={{ ...props.style, height: "100%" }} ref={props.innerRef}>
+      <div style={{ ...props.style, height: "100%" }} ref={props.innerRef} className="service">
         <header> {props.heading} </header>
         <div className="service-content">
           {props.content}
@@ -124,7 +100,5 @@ function Service(props) {
           }
         </div>
       </div>
-
-    </motion.div>
   )
 }
