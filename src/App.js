@@ -17,35 +17,6 @@ const logo_lst2 = [logo4, logo5, logo6]
 
 function App() {
 
-  const [stickiness, setStickiness] = useState(false)
-  const servicesRef = useRef(null)
-  let top = 0;
-  let btm = 0;
-
-  
-
-  const handleScroll = () => {
-    if(window.scrollY >= top && window.scrollY <= btm){
-      setStickiness(true)
-    } else {
-      setStickiness(false)
-    } 
-  }
-
-  useEffect(()=>{
-    // eslint-disable-next-line
-    top = servicesRef.current.getBoundingClientRect().top;
-    btm = servicesRef.current.getBoundingClientRect().bottom;
-
-    window.addEventListener("scroll", handleScroll, {passive:true});
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    }
-  }, []);
-  
-
-
-
   return (
     <div className="App">
       <Landing />
@@ -64,7 +35,7 @@ function App() {
       
       <p style={{margin: "20vh 0 10vh 0"}}>Leap Media Services </p>
 
-      <ServiceContainer innerRef={servicesRef} stick={stickiness}/>
+      <ServiceContainer/>
 
       <Calendar />
 

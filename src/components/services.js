@@ -1,45 +1,13 @@
 import "./services.css"
-import { useRef, useEffect } from "react"
-import { motion, Variants } from "framer-motion"
+import { motion } from "framer-motion"
 
 
 
 export default function ServiceContainer(props) {
-  const lastSectionRef = useRef(null)
-  const handleScroll = () => {
-    // console.log(lastSectionRef.current)
-    // console.log(props.innerRef.current.getBoundingClientRect().top)
-    console.log(lastSectionRef.current.getBoundingClientRect().top)
-    if (lastSectionRef.current.getBoundingClientRect().top == 0) {
-      // props.innerRef.current.style = {
-      //   "position": "relative",
-      //   "overflowY": "hidden",
-      // }
-    }
-  }
-  useEffect(() => {
-    props.innerRef.current.addEventListener("scroll", handleScroll, { passive: true })
-    return (() => {
-      props.innerRef.current.removeEventListener("scroll", handleScroll)
-    })
-
-
-  }, [])
-
 
 
   return (
-    <div className="services-container" ref={props.innerRef} style={
-      props.stick ? {
-        overflowY: "scroll",
-        position: "sticky",
-        top: "0"
-      } : {
-        position: "relative",
-        overflowY: "hidden",
-      }
-    }>
-
+    <div className="services-container">
 
 
       <div className="service" style={{ background: "#bde0fe" }}>
@@ -95,11 +63,7 @@ export default function ServiceContainer(props) {
         style={{
           background: "#ffa69e",
         }}
-
-        innerRef={lastSectionRef}
       />
-
-
     </div>
   )
 }
@@ -114,7 +78,7 @@ const serviceVariants = {
     // background: "red"
     rotateX: 0,
     transition: {
-      duration: 2
+      duration: 1
     }
   }
 
@@ -127,12 +91,12 @@ function Service(props) {
       initial="offScreen"
       whileInView="onScreen"
       variants={serviceVariants}
-      viewport={{once: true}}
+      viewport={{ once: true }}
 
     >
 
 
-      <div style={{...props.style, height: "100%"}} ref={props.innerRef}>
+      <div style={{ ...props.style, height: "100%" }} ref={props.innerRef}>
         <header> {props.heading} </header>
         <div className="service-content">
           {props.content}
@@ -145,9 +109,7 @@ function Service(props) {
           </div>
         }
 
-        <div style={{
-
-        }} className="img-container">
+        <div className="img-container">
 
           {
             props.imgs &&
