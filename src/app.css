@@ -75,6 +75,19 @@ video {
 }
 .tagline-container{
   font-size: 3rem;
+  width: 100%;
+  height: 100%;
+  background-color: #FFEB7F;
+  border-radius: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.tagline-container img{
+  width: 30vw;
+  mix-blend-mode: darken;
 }
 p{
   width: 50vw !important;
@@ -83,6 +96,7 @@ p{
   font-weight: 300;
   margin-top: 7vh;
 }
+
 
 
 
