@@ -139,34 +139,32 @@ p{
 
 /* calendar css  */
 .calendar-container{
-  background: #C7F27F;
   width: 90vw;
-  margin: 30vh auto 0 auto;
+  background-color: #C7F27F;
   border-radius: 60px;
-  padding: 70px 0;
+  margin: 10vh auto;
+  display: flex;
+  flex-direction: column;
 }
-.calendar-grid-container{
-  
-  height: 120vh;
-  min-height: fit-content;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  column-gap: 20px;
+.top-bottom-border{
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  width: 50%;
+}
+.flexbox{
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .calendar-container h2{
-  font-size: 9rem;
+  font-size: 10rem;
+  padding: 5vh 0;
   text-align: center;
-  margin-top: 7vh;
+  white-space: nowrap;
+  overflow-x: hidden;
 }
 
-
-.widget-container{
-  border: 1px solid;
-  grid-column: 1/end;
-  height: 80vh;
-
-}
+.vl{height: 100%; border-right: 1px solid;}
 
 
 .footer-tape-wrapper{
