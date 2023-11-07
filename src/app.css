@@ -88,6 +88,7 @@ video {
 .tagline-container img{
   width: 30vw;
   mix-blend-mode: darken;
+
 }
 p{
   width: 50vw !important;
@@ -149,8 +150,9 @@ p{
   height: 120vh;
   min-height: fit-content;
   display: grid;
-  grid-template-columns: 27% 3% 70%;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  column-gap: 20px;
 }
 .calendar-container h2{
   font-size: 9rem;
@@ -160,12 +162,10 @@ p{
 
 
 .widget-container{
-  border-top: 1px solid ;
-  border-bottom: 1px solid ;
-  grid-row: 1/span2;
-  grid-column: 3/span1;
-  padding: 0;
-  object-fit: contain;
+  border: 1px solid;
+  grid-column: 1/end;
+  height: 80vh;
+
 }
 
 

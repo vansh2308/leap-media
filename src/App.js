@@ -23,9 +23,9 @@ function App() {
 
       <section style={{ width: "100vw", height: "100vh", padding: "2rem" }}>
         <div className="tagline-container" style={{ width: "100%", height: "100%", background: "#FFEB7F", borderRadius: "60px", textAlign: "center", padding: "0 8vw", display: "flex", alignItems: "center", lineHeight: "130%", flexDirection: "column" }}>
-          We’re a Web3 marketing agency that help
+          <div style={{marginTop: "10vh"}}>We’re a Web3 marketing agency that help
           in acquiring users, eyeball, revenue,
-          building communities and brand building.
+          building communities and brand building.</div>
           <img src={require("./static/D-_Leap-Media_Website_Animation_Paper-plane.gif")} alt="...loading" />
         </div>
       </section>

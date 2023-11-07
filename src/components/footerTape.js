@@ -28,7 +28,7 @@ export default function FooterTape(props){
           <img src={require("./../static/X with stripes.png")} alt="x" />
           INDIA
           <img src={require("./../static/rightArrow.png")} alt="right-arrow" />
-          <div style={{width: "max-content"}}>
+          <div style={{width: "24rem"}}>
             {time.toLocaleTimeString()}
           </div>
 
