@@ -10,6 +10,7 @@ import logo6 from "./static/okx.png"
 import Marquee from "./components/infMarquee";
 import ServiceContainer from "./components/services";
 import Calendar from "./components/calendar";
+import FooterTape from "./components/footerTape";
 
 const logo_lst1 = [logo1, logo2, logo3]
 const logo_lst2 = [logo4, logo5, logo6]
@@ -20,29 +21,29 @@ function App() {
     <div className="App">
       <Landing />
 
-      <section style={{ width: "100vw", height: "100vh", padding: "2rem"}}>
-        <div className="tagline-container" style={{ width: "100%", height: "100%", background: "#FFEB7F", borderRadius: "60px", textAlign: "center", padding: "0 8vw", display:"flex", alignItems: "center", lineHeight: "130%", flexDirection: "column"}}>
+      <section style={{ width: "100vw", height: "100vh", padding: "2rem" }}>
+        <div className="tagline-container" style={{ width: "100%", height: "100%", background: "#FFEB7F", borderRadius: "60px", textAlign: "center", padding: "0 8vw", display: "flex", alignItems: "center", lineHeight: "130%", flexDirection: "column" }}>
           We’re a Web3 marketing agency that help
           in acquiring users, eyeball, revenue,
           building communities and brand building.
-        <img src={require("./static/D-_Leap-Media_Website_Animation_Paper-plane.gif")} alt="...loading" />
+          <img src={require("./static/D-_Leap-Media_Website_Animation_Paper-plane.gif")} alt="...loading" />
         </div>
       </section>
 
-      <p style={{marginBottom: "10vh"}}>Trusted by 50+ Top Industry Leaders </p>
-      <Marquee logo_lst = {logo_lst1} direction = "left"></Marquee>
-      <Marquee logo_lst = {logo_lst2} direction = "right"></Marquee>
-      
-      <p style={{margin: "20vh 0 10vh 0"}}>Leap Media Services </p>
+      <p style={{ marginBottom: "10vh" }}>Trusted by 50+ Top Industry Leaders </p>
+      <Marquee logo_lst={logo_lst1} direction="left"></Marquee>
+      <Marquee logo_lst={logo_lst2} direction="right"></Marquee>
 
-      <ServiceContainer/>
+      <p style={{ margin: "20vh 0 10vh 0" }}>Leap Media Services </p>
+
+      <ServiceContainer />
 
       <Calendar />
 
-      <div style={{margin:"3rem 0", background:"black", color:"#Fff", fontSize:"9rem", padding:"25px 0", whiteSpace:"nowrap", fontWeight:"500", }}>
-        GOOD WORK FOR GOOD PEOPLE
-      </div>
-    
+      <FooterTape/>
+
+
+
 
     </div>
   );

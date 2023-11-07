@@ -95,13 +95,6 @@ iframe{
 }
 
 
-.grid-child{
-  /* border: 5px solid red;
-  align-self: stretch; */
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-}
 .span-height{
   grid-row: 1/end;
 }

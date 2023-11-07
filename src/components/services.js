@@ -53,7 +53,6 @@ export default function ServiceContainer(props) {
 
     var scrollTop = window.pageYOffset;
     if (scrollTop >= distFromTop && scrollTop <= scrollDistance) {
-      console.log(scrollTop - distFromTop)
       locomotiveWrapper.current.style.transform = "translateX(-" + (scrollTop - distFromTop) + "px)"
     }
   }

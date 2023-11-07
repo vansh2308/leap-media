@@ -13,7 +13,7 @@ export default function Calendar(props) {
         <div className="widget-container">
           <InlineWidget url="https://calendly.com/vir--leapmedia/30min?hide_gdpr_banner=1" 
             styles={{
-              height:"100%", 
+              height: "100%",
               width: "100%"
             }}
           />
