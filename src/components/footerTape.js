@@ -24,11 +24,11 @@ export default function FooterTape(props){
     <div className="footer-tape-wrapper">
 
         <div className="footer-tape logos-slide-left">
-          <span style={{fontWeight: 600}}>GOOD WORK FOR GOOD PEOPLE</span>
+          <span style={{fontWeight: 300}}>GOOD WORK FOR GOOD PEOPLE</span>
           <img src={require("./../static/X with stripes.png")} alt="x" />
           INDIA
           <img src={require("./../static/rightArrow.png")} alt="right-arrow" />
-          <div style={{width: "24rem", overflow:"hidden"}}>
+          <div style={{width: "25rem", overflow:"hidden"}}>
             {time.toLocaleTimeString()}
           </div>
 
@@ -40,11 +40,11 @@ export default function FooterTape(props){
         </div>
 
         <div className="footer-tape logos-slide-left">
-          <span style={{fontWeight: 600}}>GOOD WORK FOR GOOD PEOPLE</span>
+          <span style={{fontWeight: 300}}>GOOD WORK FOR GOOD PEOPLE</span>
           <img src={require("./../static/X with stripes.png")} alt="x" />
           INDIA
           <img src={require("./../static/rightArrow.png")} alt="right-arrow" />
-          <div style={{width: "24rem", overflow:"hidden"}}>
+          <div style={{width: "25rem", overflow:"hidden"}}>
             {time.toLocaleTimeString()}
           </div>
 
