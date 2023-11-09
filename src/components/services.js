@@ -1,217 +1,108 @@
-import "./services.css"
 import { useEffect, useRef } from "react"
+import "./service.css"
+import ser1 from "./../static/service1.png"
+import ser2 from "./../static/service2.png"
+import ser3 from "./../static/service3.png"
+import ser4 from "./../static/service4.png"
+import ser5 from "./../static/service5.png"
+import ser6 from "./../static/service6.png"
 
+import img3 from "./../static/bcgimg.png"
+import img4 from "./../static/emimg.png"
+import img5 from "./../static/geapimg.png"
+import img6 from "./../static/fbs img.png"
 
-const servicesData = [
-  {
-    heading: "KOL INFLUENCER MARKETING",
-    content: "Our influencer network isn't just about reach; it's about relevance and resonance. We connect you with voices that amplify your message authentically and effectively in different regions.",
-    yt: "https://www.youtube.com/embed/WPpG4riAc3I?si=llX1leW8WPid2j-z",
-    bg: "#ffc8dd"
-  },
-  {
-    heading: "BUILING COMMUNITIES GLOBALLY",
-    content: "We don't just build communities; we nurture them. Our strategies are designed to foster lasting relationships and loyalty across diverse global audiences..",
-    yt: "https://www.youtube.com/embed/h7MYJghRWt0?si=ZonNlHc7-MKg6WeG",
-    bg: "#d0f4de"
-  },
-  {
-    heading: "EVENT MARKETING",
-    content: "Our event marketing goes beyond traditional boundaries, capturing the essence of your brand and the excitement of your audience.",
-    imgs: [require("./../static/event-marketing-img.png")],
-    bg: "#ffdab9"
-  },
-  {
-    bg: "#e4c1f9",
-    heading: "GLOBAL EVENT AWARENESS PARTNER",
-    content: "Our event marketing goes beyond traditional boundaries, capturing the essence of your brand and the excitement of your audience.",
-    imgs: [require("./../static/global-event-awareness-partner-1.png"), require("./../static/global-event-awareness-partner-2.png")],
-  },
-  {
-    heading: "FOUNDER / BRAND STORYTELLING",
-    content: "Leap Media takes podcasting to the next level. We help you tell your story, connecting deeply with your audience and establishing you as a thought leader in the Web3 space. \n At Leap Media, we understand the pulse of Web3. We're not just a service provider; we're a partner in your journey towards innovation and success. Ready to make your mark in the Web3 world? Leap with us!",
-    imgs: [require("./../static/storytelling-1.png"), require("./../static/storytelling-2.png"), require("./../static/storytelling-3.png")],
-    bg: "#ffa69e"
-  }
-]
-
-
+const txt1 = ""
+const txt2 = "Our influencer network isn't just about reach; it's about relevance and resonance. We connect you with voices that amplify your message authentically and effectively in different regions."
+const txt3 = "We don't just build communities; we nurture them. Our strategies are designed to foster lasting relationships and loyalty across diverse global audiences."
+const txt4 = "Our event marketing goes beyond traditional boundaries, capturing the essence of your brand and the excitement of your audience."
+const txt5 = "Join us at key web3 conferences like NFT KHI, Eth Portland, Bitcoin 2023, and Token2049. We'll be your dedicated info partner, creating testimonial videos and conducting interviews to amplify your brand's voice, boosting awareness and engagement with your protocol."
+const txt6 = `Your journey is unique. We help articulate your vision and mission, crafting narratives that inspire and resonate with your target audience.At Leap Media, we understand the pulse of Web3. We're not just a service provider; we're a partner in your journey towards innovation and success. Ready to make your mark in the Web3 world? Leap with us!`
 
 
 
 
 export default function ServiceContainer(props) {
-  let windoWidth = 0
-  let horLength = 0
+  let windowWidth = 0
+  let horLenght = 0
   let distFromTop = 0
   let scrollDistance = 0
+  const wrapperRef = useRef(null)
+  const locomotiveRef = useRef(null)
 
-  const ref = useRef(null)
-  const locomotiveWrapper = useRef(null)
-
-  const handleScroll = (e, x) => {
-
-    var scrollTop = window.pageYOffset;
+  const handleScroll = (e) => {
+    let scrollTop = window.pageYOffset;
     if (scrollTop >= distFromTop && scrollTop <= scrollDistance) {
-      locomotiveWrapper.current.style.transform = "translateX(-" + (scrollTop - distFromTop) + "px)"
+      locomotiveRef.current.style.transform = `translateX(-${scrollTop - distFromTop}px)`
     }
   }
 
-
   useEffect(() => {
-    // eslint-disable-next-line
-    windoWidth = window.innerWidth
-    // eslint-disable-next-line
-    horLength = locomotiveWrapper.current.scrollWidth
-    // eslint-disable-next-line
-    distFromTop = ref.current.offsetTop
-    // eslint-disable-next-line
-    scrollDistance = distFromTop + horLength - windoWidth
-    ref.current.style.height = scrollDistance + "px"
-
-    window.addEventListener("scroll", handleScroll, 2, { passive: true })
+    windowWidth = window.innerWidth
+    horLenght = locomotiveRef.current.scrollWidth
+    distFromTop = wrapperRef.current.offsetTop
+    scrollDistance = distFromTop + horLenght - windowWidth
+    wrapperRef.current.style.height = scrollDistance + "px"
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return (() => {
       window.removeEventListener("scroll", handleScroll)
     })
-  }, [])
-
+  })
 
 
   return (
-    <div className="services-container">
+    <div className="bilateral-container" ref={wrapperRef}>
+      <div className="sticky-container" ref={locomotiveRef}>
 
-      <div className="service" style={{ background: "#bde0fe", height: scrollDistance + "px" }} ref={ref}>
-        <div className="sticky-wrapper" style={{ display: "flex", flexDirection: "column" }}>
-          <header> COMPLETE WEB3 VIDEO SOLUTIONS </header>
-          <div className="service-content">
-            From mesmerizing 2D and 3D animations to compelling product demos and hype videos, our tailor-made solutions are crafted to captivate and engage.
+        <div className="service-container">
+          <div className="service">
+            <ContentPanel text={txt1} />
+
+
+            <ImgPanel imgUrl={ser1} name="COMPLETE WEB3 VIDEO SOLUTIONS" />
           </div>
-
-          <div className="locomotive-wrapper" ref={locomotiveWrapper}>
-
-            <div className="item">
-              <h3>2D & 3D VIDEOS</h3>
-              <div className="grid-2-2 subservice-media-wrapper">
-                <div className="grid-child span-height">
-                  <img src={require("./../static/2d-3dvid1.png")} alt="img" />
-                </div>
-                <div className="grid-child span-height">
-                  <img src={require("./../static/2d-3dvid2.png")} alt="img" />
-                </div>
-              </div>
-            </div>
-
-            <div className="item">
-              <h3>PRODUCT DEMO / HYPE VIDEOS</h3>
-              <div className="grid-2-2 subservice-media-wrapper">
-                <div className="grid-child span-height">
-                  <iframe src="https://www.youtube.com/embed/7ls_33720B8?si=HXCYDlrLKzV-o0ge" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child span-height">
-                  <iframe src="https://www.youtube.com/embed/s7DIwVwLao8?si=xn07MQa0m39sBQll" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-              </div>
-
-
-            </div>
-
-            <div className="item">
-              <h3>EXPLAINER VIDEOS</h3>
-              <div className="grid-2-2 subservice-media-wrapper" style={{ gridTemplateColumns: "repeat(3, 1fr" }}>
-                <div className="grid-child span-height">
-                  <iframe src="https://www.youtube.com/embed/TK2k8BGeLuM?si=SOfTj0dhMebwFI8y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child  span-height">
-                  <iframe src="https://www.youtube.com/embed/F6woo0gYq9k?si=qti-vYOXi6kyeAos" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child ">
-                  <iframe src="https://www.youtube.com/embed/IFJOB_abx5E?si=TeBR7SHkM_tzfwxH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child">
-                  <iframe src="https://www.youtube.com/embed/HZZagbHUN84?si=XxrPLabEpraf7lWC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="item">
-              <h3>HOSTING & EVENT VIDEO PRODUCTION</h3>
-              <div className="grid-2-2 subservice-media-wrapper" style={{ gridTemplateColumns: "repeat(3, 1fr" }}>
-                <div className="grid-child span-height">
-                  <iframe src="https://www.youtube.com/embed/0dbknwO8gPE?si=3Eer8M11ZP-BydGJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child">
-                  <iframe src="https://www.youtube.com/embed/dB6wYDpqNE4?si=FrVwhkwRQA8Ti7OD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child ">
-                  <iframe src="https://www.youtube.com/embed/DMKev4ga0fo?si=YzoGJkdJWOJZzrSh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child">
-                  <iframe src="https://www.youtube.com/embed/fqiX7F75ckA?si=caLSTd66MACHNyis" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child">
-                  <iframe src="https://www.youtube.com/embed/3IUhRzenJtk?si=VTubruJ6GCfIiHb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-              </div>
-
-
-            </div>
-
-            <div className="item">
-              <h3>EVENT HIGHLIGHTS</h3>
-              <div className="grid-2-2 subservice-media-wrapper" style={{ gridTemplateColumns: "repeat(3, 1fr" }}>
-                <div className="grid-child span-height" style={{ gridColumn: "1/end" }}>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/-PJhm6UXzLk?si=Db_GdCEyOwyc8rp0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-              </div>
-            </div>
-
-            <div className="item">
-              <h3>PODCASTS</h3>
-              <div className="grid-2-2 subservice-media-wrapper" style={{ gridTemplateColumns: "repeat(3, 1fr" }}>
-                <div className="grid-child span-height" style={{ gridColumn: "1/end" }}>
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/omUksH-NzDs?si=u3ozwHEoqH36243G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="item">
-              <h3>SOCIAL MEDIA VIDEOS</h3>
-              <div className="grid-2-2 subservice-media-wrapper">
-                <div className="grid-child span-height">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/bHHmdZo-re8?si=yb9msY5XfAs9Xvn7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div className="grid-child span-height">
-                  <iframe width="560" height="315" src="https://www.youtube.com/embed/O1mxgsOTGQ4?si=8uQPjyKACRcKyxZh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-              </div>
-
-            </div>
-
-
-          </div>
-
         </div>
+        <div className="service-container">
+          <div className="service">
+            <ContentPanel text={txt2} yt="https://www.youtube.com/embed/WPpG4riAc3I?si=TjxCu_mRdf-koMSg"/>
+
+            <ImgPanel imgUrl={ser2} name="KOL / INFLUENCER MARKETING" />
+          </div>
+        </div>
+        <div className="service-container">
+          <div className="service">
+            <ContentPanel text={txt3} img={img3}/>
+
+            <ImgPanel imgUrl={ser3} name="BUILDING COMMUNITIES GLOBALLY" />
+          </div>
+        </div>
+        <div className="service-container">
+          <div className="service">
+            <ContentPanel text={txt4}  img={img4}/>
+
+            <ImgPanel imgUrl={ser4} name="EVENT MARKETING" />
+          </div>
+        </div>
+        <div className="service-container">
+          <div className="service">
+            <ContentPanel text={txt5}   img={img5}/>
+
+            <ImgPanel imgUrl={ser5} name="GLOBAL EVENT AWARENESS PARTNER" />
+          </div>
+        </div>
+        <div className="service-container">
+          <div className="service">
+            <ContentPanel text={txt6}  img={img6}/>
+
+            <ImgPanel imgUrl={ser6} name="FOUNDER / BRAND STORYTELLING" />
+          </div>
+        </div>
+
+
+
+
+
       </div>
-
-
-
-      {
-        servicesData.map((each) => {
-          return (
-            <Service
-              heading={each.heading}
-              content={each.content}
-              imgs={each.imgs}
-              yt={each.yt}
-              style={{
-                background: each.bg
-              }}
-            />
-          )
-        })
-      }
     </div>
   )
 }
@@ -219,50 +110,30 @@ export default function ServiceContainer(props) {
 
 
 
-function Service(props) {
+function ImgPanel(props) {
   return (
-    <div style={{ ...props.style, height: "100%" }} className="service">
-      <header> {props.heading} </header>
-      <div className="service-content">
-        {props.content}
-      </div>
+    <div className="right-img-panel" style={{ background: `url(${props.imgUrl})` }}>
+      <div className="gradient-overlay"> </div>
+      <h4>{props.name}</h4>
+    </div>
+  )
+}
 
+function ContentPanel(props) {
+  return (
+    <div className="content-wrapper">
+      <p> {props.text} </p>
+      
       {
         props.yt &&
-        <div style={{ width: "100%", padding: "0 50px", transform: "" }}>
-          <iframe src={`${props.yt}`} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
+        <iframe width="560" height="315" src={props.yt} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       }
 
-      <div className="img-container">
-        {
-          props.imgs &&
-          props.imgs.map((item) => {
-            return (
-              <div
-                style={{ backgroundImage: `url(${item})` }}
-                className="img-container">
-              </div>
-            )
-          })
-        }
-      </div>
-    </div>
-  )
-}
-
-
-
-function Item(props) {
-  return (
-    <div className="item" style={props.style}>
+      {
+        props.img && 
+        <img src={props.img} />
+      }
 
     </div>
-  )
-}
-
-function YtEmbed(props) {
-  return (
-    <iframe src="https://www.youtube.com/embed/QIU2TtNOinQ?si=aKvuk2rbHEeNk384" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
   )
 }

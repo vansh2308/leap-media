@@ -34,7 +34,7 @@ function App() {
       <Marquee logo_lst={logo_lst1} direction="left"></Marquee>
       <Marquee logo_lst={logo_lst2} direction="right"></Marquee>
 
-      <p style={{ margin: "20vh 0 10vh 0" }}>Leap Media Services </p>
+      <p style={{ margin: "20vh 0 0vh 0" }}>Leap Media Services </p>
 
       <ServiceContainer />
 
